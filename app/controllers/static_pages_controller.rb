@@ -17,20 +17,16 @@ class StaticPagesController < ApplicationController
   	# ret = conn.get "/"
   	# ret = conn.post "/test_post", {:key => params[:key]}
   	
-  	msg = "/test_post?company_address=#{params[:address]}
-  	&commute_time_limit=#{params[:commute]}
-  	&means_of_transport=#{{params[:transportation]}}
-  	&safety_concern=#{{params[:safety]}}
-  	&restaurants=#{{params[:restaurants]}}
-  	&gyms=#{{params[:gym]}}
-  	&laundromat=#{{params[:laundromat]}}
-  	&pet=#{{params[:pet]}}
-  	&healthcare=#{{params[:healthcare]}}
-  	&school=#{{params[:school]}}"
+  	msg = "/?company_address=#{params[:address].to_param}&commute_time_limit=#{params[:commute_time]}&means_of_transport=#{params[:transportation]}&safety_concern=#{params[:safety]}&restaurants=#{params[:restaurants]}&gyms=#{params[:gym]}&laundromat=#{params[:laundromat]}&pet=#{params[:pet]}&healthcare=#{params[:healthcare]}&school=#{params[:school]}"
 
+  	puts msg
   	ret = conn.post msg
 
-  	puts ret.body 
+  	@map = JSON.parse(ret.body)
+  	@page = @map["map_page"].html_safe
+  	puts @page
+
+
 	end
 
 end
