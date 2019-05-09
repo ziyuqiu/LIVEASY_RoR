@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LIVEASY</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "materialize.css" %>
+    <%= javascript_include_tag 'materialize.js' %>
+    <%= javascript_include_tag 'jquery.min.js' %>
+
+    </head>
+
+  <body>
+    <%= yield %>
+  </body>
+  <script>
+    $(document).ready(function(){
+      $('select').formSelect();
+    });
+  </script>
+</html>
