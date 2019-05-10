@@ -1,81 +1,86 @@
 <div class="panel" tabindex="1">
-<div class="form-container">
-  <!-- <form action=“http://localhost:8080/” method='POST'></form> -->
-  <%= form_tag("/search", method: :get, id: "search-form") do %>
+  <div class="form-container">
+    <!-- <form action=“http://localhost:8080/” method='POST'></form> -->
+    <%= form_tag("/search", method: :get, id: "search-form") do %>
 
-    <!-- Address -->
-    <div class="row">
-      <div class="input-field col l12" style="padding: 0px;">
-        <textarea id="street" class="materialize-textarea" name="address"></textarea>
-        <label for="street">Company Street Address</label>
-      </div>
+      <!-- Address -->
+      <div class="row">
+        <div class="input-field col l12" style="padding: 0px;">
+          <textarea id="street" class="materialize-textarea" name="address"></textarea>
+          <label for="street">Company Street Address</label>
+        </div>
 
-    </div>
-    <!-- Transportation -->
-    <div class="row">
-      <div class = "input-field col s12">
-        <label style="position: relative; top: 0px; left:-10px;"> Transportation </label>
-        <select name="transportation" class="browser-default">
-          <!-- <option value="" disabled selected></option> -->
-          <option value="4">Driving</option>
-          <option value="3">Public Transportation</option>
-          <option value="2">Walking</option>
-          <option value="1">Not Care</option>
-        </select>
-        
       </div>
-    </div>
-    <!-- Commute Time -->
-    <div class="input-field col l12">
-      <textarea id="time" name="commute_time" class="materialize-textarea"></textarea>
-      <span style="position: relative; top: -40px; float: right;"> min </span>
-      <label for="time">Commute Time</label>
-    </div>
-    <!-- Safety -->
-    <div class="row">
-      <div class = "input-field col s12">
-        <label style="position: relative; top: 0px; left:-10px;"> Safety Concern </label>
-        <select name="safety" id="safety" class="browser-default">
-          <option value="" disabled selected></option>
-          <option value="4">High</option>
-          <option value="3">Medium</option>
-          <option value="2">Low</option>
-          <option value="1">Not Care</option>
-        </select>
+      <!-- Transportation -->
+      <div class="row">
+        <div class = "input-field col s12">
+          <label style="position: relative; top: 0px; left:-10px;"> Transportation </label>
+          <select name="transportation" class="browser-default">
+            <!-- <option value="" disabled selected></option> -->
+            <option value="4">Driving</option>
+            <option value="3">Public Transportation</option>
+            <option value="2">Walking</option>
+            <option value="1">Not Care</option>
+          </select>
+          
+        </div>
       </div>
-    </div>
-    
-    <!-- Other Concern -->
-    <div class="row" style="padding-left:10px">
-      <label>Other Concern </label></br>
-      <label>
-        <input type="checkbox" name="concern[]" value="Restaurants" />
-        <span>Restaurants</span>
-      </label></br>
-      <label>
-        <input type="checkbox" name="concern[]" value="Gym"  />
-        <span>Gym</span>
-      </label></br>
-      <label>
-        <input type="checkbox" name="concern[]" value="Laundromat"  />
-        <span>Laundromat</span>
-      </label></br>
-      <label>
-        <input type="checkbox" name="concern[]" value="Pet"  />
-        <span>Pet Friendly</span>
-      </label></br>
-      <label>
-        <input type="checkbox" name="concern[]" value="Healthcare"  />
-        <span>Healthcare</span>
-      </label></br>
-      <label>
-        <input type="checkbox" name="concern[]" value="School"  />
-        <span>School</span>
-      </label></br>
-    </div>
-    <button class="btn waves-effect waves-light" type="submit" name="action">Find My Ideal Home!
-      <i class="material-icons right">send</i>
-    </button>
-  <%end%>
+      <!-- Commute Time -->
+      <div class="input-field col l12">
+        <textarea id="time" name="commute_time" class="materialize-textarea"></textarea>
+        <span style="position: relative; top: -40px; float: right;"> min </span>
+        <label for="time">Commute Time</label>
+      </div>
+      <!-- Safety -->
+      <div class="row">
+        <div class = "input-field col s12">
+          <label style="position: relative; top: 0px; left:-10px;"> Safety Concern </label>
+          <select name="safety" id="safety" class="browser-default">
+            <option value="" disabled selected></option>
+            <option value="4">High</option>
+            <option value="3">Medium</option>
+            <option value="2">Low</option>
+            <option value="1">Not Care</option>
+          </select>
+        </div>
+      </div>
+      
+      <!-- Other Concern -->
+      <div class="row" style="padding-left:10px">
+        <label>Other Concern </label></br>
+        <label>
+          <input type="checkbox" name="concern[]" value="Restaurants" />
+          <span>Restaurants</span>
+        </label></br>
+        <label>
+          <input type="checkbox" name="concern[]" value="Gym"  />
+          <span>Gym</span>
+        </label></br>
+        <label>
+          <input type="checkbox" name="concern[]" value="Laundromat"  />
+          <span>Laundromat</span>
+        </label></br>
+        <label>
+          <input type="checkbox" name="concern[]" value="Pet"  />
+          <span>Pet Friendly</span>
+        </label></br>
+        <label>
+          <input type="checkbox" name="concern[]" value="Healthcare"  />
+          <span>Healthcare</span>
+        </label></br>
+        <label>
+          <input type="checkbox" name="concern[]" value="School"  />
+          <span>School</span>
+        </label></br>
+      </div>
+      <button class="btn waves-effect waves-light" type="submit" name="action">Find My Ideal Home!
+        <!-- <i class="material-icons right">send</i> -->
+      </button>
+    <%end%>
+  </div>
 </div>
+
+<div class="map-partial" tabindex="1">
+  <%= render partial: "test" %>
 </div>
+

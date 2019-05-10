@@ -1,1 +1,31 @@
-<%= @page %>
+<div class="panel" tabindex="1">
+  <div class="card" style="margin-top:0px; padding-top:20px;">
+    <span class="card-title" style="margin:20px 20px 20px 20px;">Recommendation</span>
+    <div class="card-content">
+    	<!-- <div class="collection">
+    		<% @rec_lst[0].each_with_index do |rec, i| %>
+    			<a href="#!" class="collection-item"><%= rec %></a>
+    		<% end %>
+    	</div> -->
+    	<table class = "table table-striped">
+    		<tbody> 
+   				<% @rec_lst[0].each_with_index do |rec, i| %>
+   					<tr><td><%= i+1 %></td><td> <%= rec %> </td></tr>
+		      	<% end %>
+		     </tbody>
+		</table>
+    </div>
+    <div class="card-action">
+      <a href="/">REDO SEARCH</a>
+    </div>
+  </div>
+ <!--  
+  <button class="btn waves-effect waves-light" type="submit" name="action"><a href="/" style="color: white;">Redo Search</a>
+  </button> -->
+</div>
+
+<div class="map-partial" tabindex="1">
+  <%= @map %>
+</div>
+
+

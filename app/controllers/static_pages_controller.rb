@@ -4,7 +4,6 @@ class StaticPagesController < ApplicationController
 
 	def search
   	@params = params
-  	puts params[:key]
 		params[:restaurants] = params[:concern].include? 'Restaurants'
 		params[:gym] = params[:concern].include? 'Gym'
 		params[:laundromat] = params[:concern].include? 'Laundromat'
@@ -13,7 +12,7 @@ class StaticPagesController < ApplicationController
 		params[:school] = params[:concern].include? 'School'
 
 		puts params
-  	conn = Faraday.new(:url => 'http://127.0.0.1:5000')
+  	conn = Faraday.new(:url => 'http://127.0.0.1:5000', request: {timeout: 500})
   	# ret = conn.get "/"
   	# ret = conn.post "/test_post", {:key => params[:key]}
   	
@@ -22,9 +21,10 @@ class StaticPagesController < ApplicationController
   	puts msg
   	ret = conn.post msg
 
-  	@map = JSON.parse(ret.body)
-  	@page = @map["map_page"].html_safe
-  	puts @page
+  	result = JSON.parse(ret.body)
+  	@map = result["map_page"].html_safe
+    @rec_lst = result["recommendation"].split(",")
+  	puts @rec_lst
 
 
 	end

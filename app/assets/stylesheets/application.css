@@ -27,6 +27,16 @@
     z-index: 10; 
     background-color: white;
   }
+
+  .map-partial {
+    position: absolute; 
+    height: 100%; 
+    width:70%; 
+    left:30%;
+    visibility:visible; 
+    z-index: 10; 
+    background-color: white;
+  }
   
   .form-container {
     padding: 40px 40px 40px 40px;
